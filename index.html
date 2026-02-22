@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Школьный пост-помощник</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Шапка сайта (белый фон) -->
+    <header class="header">
+        <div class="header-left">
+            <!-- Место для герба школы -->
+            <div class="logo-placeholder">
+                <img src="assets/gerb-school.png" alt="Герб школы" class="school-gerb">
+                <!-- Пока просто заглушка, замените на реальный герб -->
+                <div class="temp-gerb">[Герб]</div>
+            </div>
+        </div>
+        
+        <div class="header-center">
+            <h1 class="project-title">SchoolPost AI</h1>
+            <p class="project-subtitle">Умный помощник для школьных соцсетей</p>
+        </div>
+        
+        <div class="header-right">
+            <div class="school-name">
+                МБОУ Наро-Фоминская сош №5 СУИОП
+            </div>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <!-- Блок с выбором функций -->
+        <div class="functions-section">
+            <h2 class="section-title">Выберите нужные действия над текстом</h2>
+            <div class="functions-grid">
+                <label class="function-item">
+                    <input type="checkbox" class="function-checkbox" id="func-paragraphs" checked>
+                    <span class="function-name">Группировка на абзацы</span>
+                </label>
+                <label class="function-item">
+                    <input type="checkbox" class="function-checkbox" id="func-formatting" checked>
+                    <span class="function-name">Форматирование</span>
+                </label>
+                <label class="function-item">
+                    <input type="checkbox" class="function-checkbox" id="func-emojis" checked>
+                    <span class="function-name">Добавление эмодзи</span>
+                </label>
+                <label class="function-item">
+                    <input type="checkbox" class="function-checkbox" id="func-hashtags" checked>
+                    <span class="function-name">Добавить хештеги</span>
+                </label>
+                <label class="function-item">
+                    <input type="checkbox" class="function-checkbox" id="func-spellcheck">
+                    <span class="function-name">Проверка орфографии</span>
+                </label>
+                <label class="function-item">
+                    <input type="checkbox" class="function-checkbox" id="func-capitalize">
+                    <span class="function-name">Заглавные буквы</span>
+                </label>
+            </div>
+        </div>
+
+        <!-- Блок с настройкой хэштегов -->
+        <div class="hashtag-section">
+            <h3 class="section-subtitle">Постоянные хэштеги школы</h3>
+            
+            <div class="hashtag-controls">
+                <input type="text" id="hashtag-input" class="hashtag-input" placeholder="Введите хэштег (например: школа)">
+                <button id="add-hashtag-btn" class="hashtag-add-btn">Добавить</button>
+                <button id="reset-hashtags-btn" class="hashtag-reset-btn">Сбросить</button>
+            </div>
+            
+            <div class="hashtag-list" id="hashtag-list">
+                <!-- Сюда будут добавляться хэштеги -->
+            </div>
+        </div>
+
+        <!-- Блок ввода текста -->
+        <div class="input-section">
+            <div class="input-group">
+                <label for="post-title" class="input-label">Заголовок (необязательно)</label>
+                <input type="text" id="post-title" class="post-title-input" placeholder="Введите заголовок поста...">
+            </div>
+            
+            <div class="input-group">
+                <label for="post-content" class="input-label">Текст поста</label>
+                <textarea id="post-content" class="post-content-input" placeholder="Введите текст новости..."></textarea>
+            </div>
+
+            <button id="process-button" class="process-button">
+                <span class="button-text">Начать обработку текста</span>
+                <div class="loader hidden"></div>
+            </button>
+        </div>
+
+        <!-- Блок результата -->
+        <div class="result-section">
+            <div class="result-header">
+                <h3 class="result-title">Результат</h3>
+                <button id="copy-button" class="copy-button" disabled>
+                    <span class="copy-icon">📋</span> Копировать
+                </button>
+            </div>
+            <div class="result-output" id="result-output">
+                <!-- Сюда будет выводиться результат -->
+                <p class="placeholder-text">Здесь появится обработанный текст...</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Подключение JavaScript файлов -->
+    <script src="js/emoji-dict.js"></script>
+    <script src="js/hashtags.js"></script>
+    <script src="js/spellcheck.js"></script>
+    <script src="js/text-formatter.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
