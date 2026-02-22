@@ -164,22 +164,11 @@ document.addEventListener('DOMContentLoaded', function() {
             processedContent = checkResult.corrected;
         }
 
-        // УЛУЧШЕНИЕ ТЕКСТА (СИНОНИМЫ)
+        // УЛУЧШЕНИЕ ТЕКСТА (КРАСИВЫЕ СИНОНИМЫ)
         if (document.getElementById('func-enhance') && 
             document.getElementById('func-enhance').checked) {
             if (typeof textEnhancer !== 'undefined' && textEnhancer) {
-                console.log('=== НАЧАЛО УЛУЧШЕНИЯ ТЕКСТА ===');
-                console.log('Текст ДО:', processedContent);
-                
-                // Увеличиваем интенсивность для лучшего эффекта
-                processedContent = textEnhancer.enhanceText(processedContent, 0.8);
-                
-                let stats = textEnhancer.getStats();
-                console.log(`Заменено слов: ${stats.replacedWords}`);
-                console.log('Текст ПОСЛЕ:', processedContent);
-                console.log('=== КОНЕЦ УЛУЧШЕНИЯ ===');
-            } else {
-                console.log('Ошибка: textEnhancer не найден');
+                processedContent = textEnhancer.enhanceText(processedContent, 0.4);
             }
         }
         
