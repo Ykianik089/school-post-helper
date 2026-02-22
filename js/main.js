@@ -163,6 +163,15 @@ document.addEventListener('DOMContentLoaded', function() {
             let checkResult = spellChecker.fullCheck(processedContent);
             processedContent = checkResult.corrected;
         }
+
+        // УЛУЧШЕНИЕ ТЕКСТА (СИНОНИМЫ)
+        if (document.getElementById('func-enhance') && 
+            document.getElementById('func-enhance').checked) {
+            if (typeof textEnhancer !== 'undefined' && textEnhancer) {
+                console.log('Улучшаем текст синонимами...');
+                processedContent = textEnhancer.enhanceText(processedContent, 'synonym', 0.3);
+            }
+        }
         
         // РАЗБИВКА НА АБЗАЦЫ
         if (funcParagraphs.checked) {
